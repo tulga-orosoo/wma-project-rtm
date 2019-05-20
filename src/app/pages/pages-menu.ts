@@ -8,6 +8,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Tanks',
+    icon: 'nb-home',
+    children: [
+      {
+        title: 'List-tank',
+        link: '/pages/tanks',
+      },
+      {
+        title: 'Add-tank',
+        link: '/pages/tanks/add-tanks',
+      }
+    ]
+  },
+  {
     title: 'FEATURES',
     group: true,
   },
