@@ -4,6 +4,15 @@ import { Contacts, RecentUsers, UserData } from '../data/users';
 
 @Injectable()
 export class UserService extends UserData {
+    getUsers(): Observable<import("../data/users").User[]> {
+        throw new Error("Method not implemented.");
+    }
+    getContacts(): Observable<Contacts[]> {
+        throw new Error("Method not implemented.");
+    }
+    getRecentUsers(): Observable<RecentUsers[]> {
+        throw new Error("Method not implemented.");
+    }
 
   private time: Date = new Date;
 
