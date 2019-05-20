@@ -1,8 +1,11 @@
 import { Observable } from 'rxjs';
 
 export interface User {
-  name: string;
-  picture: string;
+  firstName: string
+  lastName:string
+  email:string
+  phoneNumber:string
+  photURL: string;
 }
 
 export interface Contacts {
