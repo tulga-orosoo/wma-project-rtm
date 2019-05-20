@@ -8,6 +8,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Tank Maintenances',
+    icon: 'nb-home',
+    link: '/pages/maintenances',
+    children: [
+      {
+        title: 'list',
+        link: '/pages/maintenances',
+      },
+      {
+        title: 'add',
+        link: '/pages/maintenances/add',
+      },
+      {
+        title: 'edit',
+        link: '/pages/maintenances/edit:id',
+      },
+    ]
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

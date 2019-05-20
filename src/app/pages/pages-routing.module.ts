@@ -13,6 +13,10 @@ const routes: Routes = [{
       component: DashboardComponent,
     },
     {
+      path: 'maintenances',
+      loadChildren: './tank-maintenances/tank-maintenances.module#TankMaintenancesModule',
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
