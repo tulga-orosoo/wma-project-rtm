@@ -54,12 +54,17 @@
     "bootstrap": "4.0.0",
     "classlist.js": "1.1.20150312",
     "core-js": "2.5.1",
+    "echarts": "^4.2.1",
     "eva-icons": "^1.1.0",
     "firebase": "^6.0.2",
     "intl": "1.2.5",
     "ionicons": "2.0.1",
     "nebular-icons": "1.1.0",
+<<<<<<< HEAD
     "ngx-toastr": "^10.0.4",
+=======
+    "ngx-echarts": "^4.1.1",
+>>>>>>> 7e9c4e681d4da91bff0888d9ae3e81e052b8377d
     "normalize.css": "6.0.0",
     "pace-js": "1.0.2",
     "roboto-fontface": "0.8.0",

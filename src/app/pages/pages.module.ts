@@ -6,6 +6,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { TanksModule } from './tanks/tanks.module';
+import { TankMaintenancesModule } from './tank-maintenances/tank-maintenances.module';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -18,9 +19,10 @@ const PAGES_COMPONENTS = [
     DashboardModule,
     MiscellaneousModule,
     TanksModule,
+    TankMaintenancesModule,
   ],
   declarations: [
-    ...PAGES_COMPONENTS,
+    ...PAGES_COMPONENTS
   ],
 })
 export class PagesModule {

@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-lg-8">
+    <nb-card>
+      <nb-card-header>Tank maintenances</nb-card-header>
+      <nb-card-body>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of maintenances let i = index;">
+              <td scope="row">{{item.$key}}</td>
+              <td scope="row">{{item.name}}</td>
+              <td scope="row">{{item.description}}</td>
+              <td class="text-center action-block">
+                <div class="btn-group btn-group-sm">
+
+
+                <a routerLink="/pages/tanks/edit:{{item.$key}}" class="btn btn-primary btn-icon btn-sm">
+                  <i class="nb-edit"></i>
+                </a>
+
+                <a (click)="delete(item)" class="btn btn-sm btn-primary btn-icon">
+                  <i class="nb-close"></i>
+                </a>
+              </div>
+
+            </tr>
+          </tbody>
+        </table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
