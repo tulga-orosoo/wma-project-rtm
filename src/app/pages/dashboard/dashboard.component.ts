@@ -1,19 +1,33 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, ContentChild, OnInit, ElementRef,AfterViewInit, OnDestroy  } from '@angular/core';
+import { MessageService } from '../../@core/mock/message.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { NbThemeService } from '@nebular/theme';
+
 
 @Component({
   selector: 'ngx-dashboard',
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent implements AfterViewInit, OnDestroy {
+export class DashboardComponent implements AfterViewInit, OnDestroy, OnInit {
   options: any = {};
   themeSubscription: any;
 
+  message:String
+
   constructor(
     private theme: NbThemeService,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private msgService:MessageService,
+    private elemReference:ElementRef
     ) {
+  }
+
+  ngOnInit(): void {
+    this.msgService.sendMessage("Hello")
+    this.msgService.messenger.subscribe(msg=>{
+      this.message=msg
+      this.elemReference.nativeElement.children[0].hidden=false
+    })
   }
 
   ngAfterViewInit() {

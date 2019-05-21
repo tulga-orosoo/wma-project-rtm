@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MessageService } from './@core/mock/message.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,7 +47,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     AuthGuard,
-    AuthService
+    AuthService,
+    MessageService
   ],
 })
 export class AppModule {

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NgxAuthRoutingModule } from './auth-routing.module';
-import { NbAuthModule } from '@nebular/auth';
+import { NbAuthModule, NbRegisterComponent } from '@nebular/auth';
 import {
   NbAlertModule,
   NbButtonModule,
@@ -14,6 +14,7 @@ import {
 
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   imports: [
@@ -25,12 +26,12 @@ import { LogoutComponent } from './logout/logout.component';
     NbButtonModule,
     NbCheckboxModule,
     NgxAuthRoutingModule,
-
     NbAuthModule,
   ],
   declarations: [
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    RegisterComponent,
     // ... here goes our new components
   ],
 })
