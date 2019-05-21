@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+//import { TanksComponent } from './tanks/tanks.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -11,6 +13,14 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
+    },
+    {
+      path: 'tanks',
+      loadChildren: './tanks/tanks.module#TanksModule'
+    },
+    {
+      path: 'maintenances',
+      loadChildren: './tank-maintenances/tank-maintenances.module#TankMaintenancesModule',
     },
     {
       path: '',

@@ -7,6 +7,9 @@ import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { UsersComponent } from './users/users.component';
 import { UsersModule } from './users/users.module';
+import { TanksModule } from './tanks/tanks.module';
+import { TankMaintenancesModule } from './tank-maintenances/tank-maintenances.module';
+
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -19,7 +22,9 @@ const PAGES_COMPONENTS = [
     ThemeModule,
     DashboardModule,
     MiscellaneousModule,
-    UsersModule
+    UsersModule,
+    TanksModule,
+    TankMaintenancesModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS

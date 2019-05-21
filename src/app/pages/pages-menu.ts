@@ -4,9 +4,27 @@ import { link } from 'fs';
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Dashboard',
-    icon: 'nb-home',
+    icon: 'nb-bar-chart',
     link: '/pages/dashboard',
     home: true,
+  },
+  {
+    title: 'Tanks',
+    icon: 'nb-coffee-maker',
+    children: [
+      {
+        title: 'List-tank',
+        link: '/pages/tanks',
+      },
+      {
+        title: 'Add-tank',
+        link: '/pages/tanks/add-tanks',
+      }
+    ]
+  }, {
+    title: 'Tank Maintenances',
+    icon: 'nb-compose',
+    link: '/pages/maintenances',
   },
   {
     title: 'FEATURES',

@@ -1,0 +1,31 @@
+<div class="table-responsive" >
+    <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+    <thead>
+    <tr>
+    <th scope="col">Tank code</th>
+    <th scope="col">Tank name</th>
+    <th scope="col">capacity</th>
+    <th scope="col">tanks type</th>
+    <th scope="col">Location</th>
+    <th scope="col">description</th>
+    <th scope="col">status</th>
+    <th scope="col">Oil Type</th>
+    
+    </tr>
+    </thead>
+    <tbody>
+            <!-- *ngFor loop iterates over Student array and fetch the student's data -->
+            <!-- paginate pipe will add pagination in student's list, it won't show if items are less then 7 -->
+            <tr *ngFor="let tank of Tanks">
+                <td>{{tank.code}}</td>
+                <td>{{tank.name}}</td>
+                <td>{{tank.capacity}}</td>
+                <td>{{tank.typeOfTank}}</td>
+                <td>{{tank.location}}</td>
+                <td>{{tank.description}}</td>
+                <td>{{tank.status}}</td>
+                <td>{{tank.oilType}}</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>

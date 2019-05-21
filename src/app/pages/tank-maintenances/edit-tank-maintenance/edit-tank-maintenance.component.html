@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-lg-6">
+      <nb-card>
+        <nb-card-header>Update maintenance record</nb-card-header>
+        <nb-card-body>
+
+
+          <form [formGroup]="dataForm" (ngSubmit)="submitData()" novalidate>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" formControlName="name" class="form-control" required>
+              <p *ngIf="name.touched && name.invalid" class="error"><sup>*</sup>Please enter atleast name</p>
+              <p *ngIf="name.errors?.minlength" class="error"><sup>*</sup>Name shouldn't be less than 2 words</p>
+            </div>
+
+            <div class="form-group">
+              <label>Description</label>
+              <textarea class="form-control" formControlName="description" placeholder="Description"></textarea>
+            </div>
+
+
+            <a class="btn float-right text-primary" (click)="goBack()"><i class="nb-arrow-thin-left btn-icon-fix"></i>Back</a>
+            <button type="submit" class="btn btn-success" [disabled]="!dataForm.valid">Update</button>
+
+          </form>
+
+
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
