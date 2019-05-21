@@ -17,10 +17,9 @@ export class TanksService {
             name : tank.name,
             capacity: tank.capacity,
             typeOfTank : tank.typeOfTank,
-            location : tank.location,
             description : tank.description,
             status : tank.status,
-            OilType : tank.oilType
+            oilType : tank.oilType
 
         })
     }
@@ -32,10 +31,9 @@ export class TanksService {
             name : tank.name,
             capacity: tank.capacity,
             typeOfTank : tank.typeOfTank,
-            location : tank.location,
             description : tank.description,
             status : tank.status,
-            OilType : tank.oilType
+            oilType : tank.oilType
         })
     }
 
@@ -47,13 +45,13 @@ export class TanksService {
 
     //fetch a tank
     GetTank(id:string){
-        this.tankRef = this.db.object('data/tanks'+id);
+        this.tankRef = this.db.object('data/tanks/'+id);
         return this.tankRef;
     }
 
     //delete tank
     DeleteTank(id:string){
-        this.tankRef = this.db.object('data/tanks'+id);
+        this.tankRef = this.db.object('data/tanks/'+id);
         this.tankRef.remove();
     }
  

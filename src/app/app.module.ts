@@ -22,6 +22,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth/auth.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,7 @@ import { AuthService } from './auth/auth.service';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxPaginationModule,
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
