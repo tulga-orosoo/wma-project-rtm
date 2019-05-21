@@ -22,6 +22,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth/auth.service';
+import { MessageService } from './@core/mock/message.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -44,7 +45,8 @@ import { AuthService } from './auth/auth.service';
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     AuthGuard,
-    AuthService
+    AuthService,
+    MessageService
   ],
 })
 export class AppModule {

@@ -1,4 +1,5 @@
 import { NbMenuItem } from '@nebular/theme';
+import { link } from 'fs';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
@@ -51,4 +52,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title:'Users',
+    icon:'nb-person',
+    link:'/pages/users'
+  }
 ];
