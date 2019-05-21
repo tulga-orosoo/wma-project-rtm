@@ -4,6 +4,7 @@ import { XUserService } from '../../@core/mock/user.service';
 import { XUser } from '../../@core/data/user';
 import { NgForOfContext } from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { NbToastRef, NbToastrService } from '@nebular/theme';
 
 @Component({
   selector: 'register',
@@ -12,6 +13,8 @@ import { NgForm } from '@angular/forms';
   providers: [XUserService]
 })
 export class RegisterComponent implements OnInit {
+
+  tstRef:NbToastRef
 
   user = {
     fullName: '',
@@ -24,7 +27,7 @@ export class RegisterComponent implements OnInit {
   Messages = { error: false, success: false }
   errors: Array<String>
 
-  constructor(private userService: XUserService, cd: ChangeDetectorRef,private router: Router) { }
+  constructor(private userService: XUserService, cd: ChangeDetectorRef,private router: Router,private tstRefService:NbToastrService) { }
 
   getConfigValue(terms): any { return terms }
 
@@ -44,11 +47,12 @@ export class RegisterComponent implements OnInit {
     this.userService.serverCreateUser(userObj)
       .subscribe(response => {
         if (response.status == "Success") {
+          this.tstRef=this.tstRefService.success(`${response.status}`,"Success")
           form.resetForm()
           this.router.navigate(['pages'])
         }
         else{
-          console.log(response)
+          this.tstRef=this.tstRefService.danger(`${response.message.message}`,"Error")
         }
       })
   }

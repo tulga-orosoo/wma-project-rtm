@@ -9,7 +9,8 @@ import { DashboardComponent } from './dashboard.component';
     ThemeModule,
   ],
   declarations: [
-    DashboardComponent,
+    DashboardComponent
+
   ],
 })
 export class DashboardModule { }

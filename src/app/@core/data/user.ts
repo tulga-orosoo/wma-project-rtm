@@ -49,6 +49,17 @@ export class XUser {
         build() {
             return this.user
         }
+
+        from(jsonObject){
+            this.user.firstName=jsonObject.firstName
+            this.user.lastName=jsonObject.lastName
+            this.user.email=jsonObject.email
+            this.user.password=jsonObject.email
+            this.user.phoneNumber=jsonObject.phoneNumber
+            this.user.photURL=jsonObject.photoURL
+            this.user.password=jsonObject.password
+            return this
+        }
     }
 
 }

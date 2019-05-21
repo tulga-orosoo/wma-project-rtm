@@ -46,6 +46,7 @@
     "@angular/platform-browser": "^7.2.11",
     "@angular/platform-browser-dynamic": "^7.2.11",
     "@angular/router": "^7.2.11",
+    "@material/list": "^2.1.1",
     "@nebular/auth": "3.4.2",
     "@nebular/bootstrap": "3.4.2",
     "@nebular/security": "3.4.2",

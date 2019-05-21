@@ -1,0 +1,11 @@
+<nb-card size="xlarge">
+    <nb-list>
+        <nb-list-item *ngFor="let user of users">
+            <div [id]="user.title" #usr>
+                <nb-user [name]="user.name" [title]="user.title" [nbContextMenu]="items"
+                    nbContextMenuTag="user-view-menu" [nbContextMenuPlacement]="left" nbContextMenuTrigger="click">
+                </nb-user>
+            </div>
+        </nb-list-item>
+    </nb-list>
+</nb-card>

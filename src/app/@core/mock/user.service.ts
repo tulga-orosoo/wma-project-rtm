@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { XUser } from '../data/user';
-import { Observable } from 'rxjs';
+import { Observable,from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
@@ -27,13 +27,15 @@ export class XUserService {
             "password": user.getPassword()
         }
 
-        return this.http.post('https://us-central1-montorkh-rtm.cloudfunctions.net/users/user', xUserObject)     
+        return this.http.post('https://us-central1-montorkh-rtm.cloudfunctions.net/users/user', xUserObject)
     }
 
-    getUsers(): Observable<Array<XUser>> {
+    getUsers(): Observable<any> {
+
+        let userObservable:Observable<Array<XUser>>
 
         //code for getting Users
-        return null
+        return this.http.get("https://us-central1-montorkh-rtm.cloudfunctions.net/users/")       
     }
 
     updateUser(user: XUser): Observable<XUser> {
