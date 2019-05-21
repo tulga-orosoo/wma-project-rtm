@@ -42,6 +42,7 @@
 }
 
 nb-card-header.tools {
+  padding: 0.8rem 1.25rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,3 +61,131 @@ nb-card-header.tools {
 }
 
 
+
+
+// Cylinder css
+.cylinder {
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 150px;
+	height: 300px;
+	border-radius: 75px/25px;
+	background-color: rgba(160, 160, 160, 0.2);
+	border: 1px solid #ccc;
+}
+
+.cylinder:before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 150px;
+	height: 50px;
+	border-radius: 75px/25px;
+	background-color: rgba(160, 160, 160, 0.2);
+	content: '';
+	border-bottom: 1px solid #ccc;
+}
+
+.cylinder:after {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 150px;
+	height: 50px;
+	border-radius: 75px/25px;
+	background-color: rgba(160, 160, 160, 0.2);
+	content: '';
+}
+
+.water {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 150px;
+	height: 0;
+	padding-top: 50px;
+	border-radius: 75px/25px;
+	background-color: rgba(0, 160, 160, 0.6);
+	transition: 0.3s linear;
+}
+
+.water:before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 150px;
+	height: 50px;
+	border-radius: 75px/25px;
+	background-color: rgba(0, 160, 160, 0.3);
+	content: '';
+}
+.water:after {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 150px;
+	height: 50px;
+	border-radius: 75px/25px;
+	background-color: rgba(27, 54, 54, 0.5);
+	content: '';
+}
+
+.oil {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 150px;
+	height: 0;
+	padding-top: 50px;
+	border-radius: 75px/25px;
+	background-color: rgba(0, 160, 160, 0.5);
+  transition: 0.3s linear;
+  text-align: center;
+  font-size: 30px;
+}
+
+.oil:before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 150px;
+	height: 50px;
+	border-radius: 75px/25px;
+	background-color: rgba(0, 160, 160, 0.2);
+	content: '';
+}
+
+.oil:after {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 150px;
+	height: 50px;
+	border-radius: 75px/25px;
+	background-color: rgba(0, 160, 160, 0.4);
+	content: '';
+}
+
+.cylinder .oil {
+  height: 50px;
+  bottom: 0px;
+}
+
+.cylinder .water {
+	height: 5px;
+  bottom: 0px;
+  display: none;
+}
+
+//  end of cylinder style
+
+table.tank-info {
+  td.tank {
+    padding-left: 30px;
+  }
+  td.info {
+    padding-left: 40px;
+    padding-right: 20px;
+  }
+}

@@ -1,16 +1,98 @@
 <div class="row">
+    <div class="col-lg-6">
+        <nb-card>
+          <nb-card-header>Summary</nb-card-header>
+          <nb-card-body>
+              <div class="progress-info">
+              <div class="title">Current level (1000 Litre)</div>
+              <div class="value">{{ 537000 | ngxNumberWithCommas }}</div>
+              <nb-progress-bar [value]="70"></nb-progress-bar>
+              <div class="description">
+                <bdi>Total capacity {{ 2137000 | ngxNumberWithCommas }}</bdi>
+              </div>
+            </div>
+            <div class="progress-info">
+              <div class="title">Last measurement:</div>
+              <div class="value">15:35 Today</div>
+              <div class="description">
+                  <bdi>Monday, May 15, 2019 22:45 </bdi>
+                </div>
+              </div>
+              <div class="progress-info">
+              <div class="title">Total measurements</div>
+              <div class="value">{{ 23537002340 | ngxNumberWithCommas }}</div>
+              <div class="description">
+                  <bdi>Total measured days: 453</bdi>
+                </div>
+              </div>
+          </nb-card-body>
+          <nb-card-footer>
+              <nb-actions size="medium" fullWidth>
+                <nb-action nbTooltip="Total tanks">
+                  <i class="nb-coffee-maker"></i><span>3</span>
+                </nb-action>
+                <nb-action nbTooltip="Total users">
+                  <i class="nb-person"></i><span>12</span>
+                </nb-action>
+                <nb-action nbTooltip="Total maintenances">
+                  <i class="nb-gear"></i><span>4</span>
+                </nb-action>
+              </nb-actions>
+            </nb-card-footer>
+        </nb-card>
+      </div>
+
+    <div class="col-lg-6">
   <nb-card>
-    <nb-card-body>
-      Hello from ngx-admin sandbox project.
-      <br>
-
-
-      <button nbButton fullWidth status="success" (click)="getDate()">
-        Get data
-      </button>
+      <nb-card-header class="tools">
+          <span>Tank 1</span>
+          <div>
+            <a routerLink="/pages/maintenances/add" class="btn btn-xs btn-success btn-round">More</a>
+          </div>
+        </nb-card-header>
+    <nb-card-body style="min-height: 424px">
+      <table class="tank-info" style="margin-top: 30px;">
+        <tbody>
+          <tr>
+            <td class="tank">
+                <div class="cylinder">
+                    <div class="oil" style="height: 150px">15%</div>
+                    <div class="water"></div>
+                  </div>
+            </td>
+            <td class="info">
+              <h4 class="text-primary">Oil:</h4>
+              <h5 class="text-hint">Temp level 1:</h5>
+              <h5 class="text-hint">Temp level 2:</h5>
+              <h5 class="text-hint">Temp level 3:</h5>
+              <h5 class="text-hint">Temp level 4:</h5>
+              <h5 class="text-hint">Temp level 5:</h5>
+              <h5 class="text-hint">Water level:</h5>
+              <h5 class="text-hint">Tank size:</h5>
+              <h5 class="text-hint">Oil type:</h5>
+            </td>
+            <td>
+                <h4 class="text-primary">54000 litre</h4>
+                <h5>25°C</h5>
+                <h5>25°C</h5>
+                <h5>25°C</h5>
+                <h5>25°C</h5>
+                <h5>25°C</h5>
+                <h5>10m, (0.1%)</h5>
+                <h5>1000 m<sup>3</sup></h5>
+                <h5>A92</h5>
+              </td>
+          </tr>
+        </tbody>
+      </table>
     </nb-card-body>
   </nb-card>
 </div>
+
+
+</div>
+
+
 
 <div class="row">
 <div class="col-lg-12">

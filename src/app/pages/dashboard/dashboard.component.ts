@@ -1,14 +1,25 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
 import { NbThemeService } from '@nebular/theme';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 
 @Component({
   selector: 'ngx-dashboard',
   templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements AfterViewInit, OnDestroy {
+export class DashboardComponent implements AfterViewInit, OnDestroy, OnInit {
   options: any = {};
   themeSubscription: any;
+  dataReady = false;
+  configReady = false;
+  dashboardData = {
+    tanks:[] = [],
+    total: 0,
+    lastDate: '',
+    totalMeasurements: 0,
+    totalUsers: 0,
+    totalMaintenances: 0,
+  }
 
   constructor(
     private theme: NbThemeService,
@@ -16,14 +27,19 @@ export class DashboardComponent implements AfterViewInit, OnDestroy {
     ) {
   }
 
+  ngOnInit() {
+
+  }
+
   ngAfterViewInit() {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
-      let items = this.db.list('tank_measures/measures').valueChanges().subscribe();
+      // let items = this.db.list('tank_measures/measures').valueChanges().subscribe();
 
 
       const colors: any = config.variables;
       const echarts: any = config.variables.echarts;
+      this.configReady = true;
 
       this.options = {
         backgroundColor: echarts.bg,
@@ -124,6 +140,14 @@ export class DashboardComponent implements AfterViewInit, OnDestroy {
       };
     });
   }
+
+
+  updateView() {
+    if(!this.dataReady) return;
+    if(!this.configReady) return;
+
+  }
+
 
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();

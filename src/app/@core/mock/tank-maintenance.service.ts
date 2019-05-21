@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TankMaintenance } from '../data/tank-maintenances';  // tankMaintenance data type interface class
-import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';  // Firebase modules for Database, Data list and Single object
+import { TankMaintenance } from '../data/tank-maintenances';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 @Injectable({
   providedIn: 'root'
 })
