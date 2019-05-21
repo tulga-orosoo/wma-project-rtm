@@ -5,6 +5,7 @@ import { XUser } from '../../@core/data/user';
 import { NgForOfContext } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { NbToastRef, NbToastrService } from '@nebular/theme';
+import { MessageService } from '../../@core/mock/message.service';
 
 @Component({
   selector: 'register',
@@ -27,7 +28,9 @@ export class RegisterComponent implements OnInit {
   Messages = { error: false, success: false }
   errors: Array<String>
 
-  constructor(private userService: XUserService, cd: ChangeDetectorRef,private router: Router,private tstRefService:NbToastrService) { }
+  constructor(private userService: XUserService, cd: ChangeDetectorRef,
+    private router: Router,private tstRefService:NbToastrService,
+    private msgService:MessageService) { }
 
   getConfigValue(terms): any { return terms }
 
@@ -47,7 +50,8 @@ export class RegisterComponent implements OnInit {
     this.userService.serverCreateUser(userObj)
       .subscribe(response => {
         if (response.status == "Success") {
-          this.tstRef=this.tstRefService.success(`${response.status}`,"Success")
+          //this.tstRef=this.tstRefService.success(`${response.status}`,"Success")
+          this.msgService.sendMessage(`${response.status}`)
           form.resetForm()
           this.router.navigate(['pages'])
         }

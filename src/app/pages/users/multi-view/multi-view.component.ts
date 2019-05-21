@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, ViewChild } from '@angular/core';
-import { NbMenuService } from '@nebular/theme';
+import { NbMenuService, NbContextMenuComponent } from '@nebular/theme';
 import { filter, map } from 'rxjs/operators'
 import { XUserService } from '../../../@core/mock/user.service';
 import { useAnimation } from '@angular/animations';
@@ -12,6 +12,10 @@ import { useAnimation } from '@angular/animations';
 })
 export class MultiViewComponent implements OnInit {
 
+  contextMenu=new NbContextMenuComponent()
+
+  @Input() menuTag 
+  @Input() placement
   @ViewChild('usr') usr
 
   items = [{ title: 'View'}, { title: 'Edit' }, { title: 'Remove' }];
@@ -35,6 +39,9 @@ export class MultiViewComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.contextMenu.tag=this.menuTag
+    this.contextMenu.position=this.placement
 
     this.nbMenuService.onItemClick()
       .pipe(
