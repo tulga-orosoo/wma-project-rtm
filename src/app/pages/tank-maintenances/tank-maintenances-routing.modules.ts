@@ -12,7 +12,7 @@ const routes: Routes = [{
     path: 'add',
     component: AddTankMaintenanceComponent,
   }, {
-    path: 'edit:id',
+    path: 'edit/:id',
     component: EditTankMaintenanceComponent,
   },
 ];

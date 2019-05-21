@@ -14,12 +14,12 @@
           </div>
 
           <div class="form-group">
-              <label>Description</label>
-              <textarea class="form-control" formControlName="description"  placeholder="Description"></textarea>
-            </div>
+            <label>Description</label>
+            <textarea class="form-control" formControlName="description" placeholder="Description"></textarea>
+          </div>
 
 
-
+          <a class="btn float-right text-primary" [routerLink]="['/pages/maintenances']"><i class="nb-arrow-thin-left btn-icon-fix"></i>Back</a>
           <button type="button" class="btn btn-secondary mr-3" (click)="ResetForm()">Reset</button>
           <button type="submit" class="btn btn-success" [disabled]="!dataForm.valid">Submit</button>
 
@@ -29,3 +29,4 @@
       </nb-card-body>
     </nb-card>
   </div>
+</div>

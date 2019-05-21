@@ -1,35 +1,41 @@
 <div class="row">
   <div class="col-lg-8">
-    <nb-card>
-      <nb-card-header>Tank maintenances</nb-card-header>
+    <nb-card [nbSpinner]="preLoader" nbSpinnerStatus="success">
+      <nb-card-header class="tools">
+        <span>Tank maintenances</span>
+        <div>
+          <a routerLink="/pages/maintenances/add" class="btn btn-xs btn-success btn-round">Add</a>
+        </div>
+      </nb-card-header>
       <nb-card-body>
-        <table class="table table-bordered table-striped">
+        <div class="" *ngIf="noData">
+            No maintenance record added yet!
+        </div>
+        <table class="table table-bordered table-striped" *ngIf="hideWhenNoData">
           <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
               <th>Description</th>
-              <th>Action</th>
+              <th colspan="2" class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
+
             <tr *ngFor="let item of maintenances let i = index;">
               <td scope="row">{{item.$key}}</td>
               <td scope="row">{{item.name}}</td>
               <td scope="row">{{item.description}}</td>
-              <td class="text-center action-block">
-                <div class="btn-group btn-group-sm">
-
-
-                <a routerLink="/pages/tanks/edit:{{item.$key}}" class="btn btn-primary btn-icon btn-sm">
+              <td class="action-block">
+                <a routerLink="/pages/maintenances/edit/{{item.$key}}" class="btn btn-icon text-primary">
                   <i class="nb-edit"></i>
                 </a>
-
-                <a (click)="delete(item)" class="btn btn-sm btn-primary btn-icon">
-                  <i class="nb-close"></i>
+              </td>
+              <td class="action-block">
+                <a (click)="delete(item)" class="btn btn-icon text-primary">
+                  <i class="nb-trash"></i>
                 </a>
-              </div>
-
+              </td>
             </tr>
           </tbody>
         </table>

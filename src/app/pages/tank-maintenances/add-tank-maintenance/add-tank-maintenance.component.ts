@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'; // Reactive form services
-
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { NbToastrService } from '@nebular/theme';
 import { TankMaintenanceService } from '../../../@core/mock/tank-maintenance.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class AddTankMaintenanceComponent implements OnInit {
   public dataForm: FormGroup;
   constructor(
     public dataService: TankMaintenanceService,
-    public fb: FormBuilder,       // Form Builder service for Reactive forms
+    public fb: FormBuilder,
+    private toastrService: NbToastrService
   ) { }
 
   ngOnInit() {
@@ -40,7 +41,9 @@ export class AddTankMaintenanceComponent implements OnInit {
 
     submitData() {
       this.dataService.AddMaintenance(this.dataForm.value); // Submit student data using CRUD API
-
+      this.toastrService.success('New maintenance record added.',
+        `Success`
+        );
       this.ResetForm();  // Reset form when clicked on reset button
       };
 

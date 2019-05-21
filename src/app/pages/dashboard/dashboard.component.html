@@ -5,11 +5,21 @@
       <br>
 
 
-      <button nbButton
-          fullWidth
-          status="success" (click)="getDate()">
-    Get data
-  </button>
+      <button nbButton fullWidth status="success" (click)="getDate()">
+        Get data
+      </button>
     </nb-card-body>
   </nb-card>
+</div>
+
+<div class="row">
+<div class="col-lg-12">
+  <nb-card>
+    <nb-card-header>Area Stack</nb-card-header>
+    <nb-card-body>
+      <div echarts [options]="options" class="echart"></div>
+    </nb-card-body>
+  </nb-card>
+</div>
+
 </div>
