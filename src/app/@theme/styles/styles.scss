@@ -167,6 +167,31 @@ nb-card-header.tools {
 	content: '';
 }
 
+.oil.type2 {
+	background-color: rgba(219, 200, 26, 0.5);
+}
+
+.oil.type2:before {
+	background-color: rgba(219, 200, 26, 0.2);
+}
+
+.oil.type2:after {
+	background-color: rgba(219, 200, 26, 0.4);
+}
+
+.oil.type3 {
+	background-color: rgba(192, 23, 169, 0.5);
+}
+
+.oil.type3:before {
+	background-color: rgba(192, 23, 169, 0.2);
+}
+
+.oil.type3:after {
+	background-color: rgba(192, 23, 169, 0.4);
+}
+
+
 .cylinder .oil {
   height: 50px;
   bottom: 0px;

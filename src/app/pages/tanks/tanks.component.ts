@@ -17,11 +17,22 @@ export class TanksComponent implements OnInit {
     let t = this.tankService.GetTanksList();
     t.snapshotChanges().subscribe(tank =>{
       this.Tanks = [];
+
+
       tank.forEach(item => {
         let tan = item.payload.toJSON();
+        
+        tan['$key'] = item.key;
         this.Tanks.push(tan as Tank);
       })
     })
+  }
+  delete(data) {
+    if (window.confirm('Are sure you want to delete this data ?')) { // Asking from user before Deleting tank data.
+    this.tankService.DeleteTank(data.$key) // Using Delete tank API to delete tank.
+    console.log(data);
+    console.log(data.$key);
+    }
   }
 
 }

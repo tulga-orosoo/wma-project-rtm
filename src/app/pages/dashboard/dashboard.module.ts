@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-
-
 import { ThemeModule } from '../../@theme/theme.module';
 import { DashboardComponent } from './dashboard.component';
 import { NgxEchartsModule } from 'ngx-echarts';
@@ -11,7 +9,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     NgxEchartsModule
   ],
   declarations: [
-    DashboardComponent,
+    DashboardComponent
+
   ],
 })
 export class DashboardModule { }
