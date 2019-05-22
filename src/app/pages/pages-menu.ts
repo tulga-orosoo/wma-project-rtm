@@ -13,11 +13,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-coffee-maker',
     children: [
       {
-        title: 'List-tank',
+        title: 'List tank',
         link: '/pages/tanks',
       },
       {
-        title: 'Add-tank',
+        title: 'Add tank',
         link: '/pages/tanks/add-tanks',
       }
     ]
@@ -25,6 +25,21 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Tank Maintenances',
     icon: 'nb-compose',
     link: '/pages/maintenances',
+  },
+  {
+    title:'Users',
+    icon:'nb-person',
+    link:'/pages/users',
+    children: [
+      {
+        title: 'List users',
+        link: '/pages/users',
+      },
+      {
+        title: 'Register',
+        link: '/auth/register',
+      }
+    ]
   },
   {
     title: 'FEATURES',
@@ -52,9 +67,4 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-  {
-    title:'Users',
-    icon:'nb-person',
-    link:'/pages/users'
-  }
 ];

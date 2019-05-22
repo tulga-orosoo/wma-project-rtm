@@ -21,7 +21,8 @@ export class UpdateViewComponent implements OnInit {
     email: '',
     password: '',
     terms: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    confirmPassword: ''
   }
 
   Messages = { error: false, success: false }

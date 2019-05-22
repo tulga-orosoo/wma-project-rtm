@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   async login() {
     let result = await this.authService.login(this.user.email, this.user.password);
-    if(result.error) {
+    if(result && result.error) {
       this.user.password = '';
       this.setError(result.error);
     }

@@ -1,20 +1,5 @@
 <h1 id="title" class="title">Update User</h1>
 
-<nb-alert *ngIf="Messages.error && errors?.length && !submitted" outline="danger" role="alert">
-  <p class="alert-title"><b>Oh snap!</b></p>
-  <ul class="alert-message-list">
-    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
-  </ul>
-</nb-alert>
-
-<nb-alert *ngIf="Messages.success && messages?.length && !submitted" outline="success" role="alert">
-  <p class="alert-title"><b>Hooray!</b></p>
-  <ul class="alert-message-list">
-    <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
-  </ul>
-</nb-alert>
-
-
 <form (ngSubmit)="register(form)" #form="ngForm" aria-labelledby="title" class="col-md-6">
 
   <div class="form-control-group">
@@ -118,7 +103,7 @@
 
   <br />
 
-  <button nbButton fullWidth status="success" [disabled]="submitted || !form.valid" [class.btn-pulse]="submitted">
+  <button nbButton fullWidth status="success" [disabled]="!form.valid">
     Update
   </button>
 </form>

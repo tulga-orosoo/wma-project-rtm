@@ -23,7 +23,8 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: '',
     terms: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    confirmPassword: ''
   }
 
   Messages = { error: false, success: false }
@@ -39,7 +40,7 @@ export class RegisterComponent implements OnInit {
 
     const userName = this.user.fullName.split(" ")
 
-   
+
     const notification = {
       type: '',
       message: '',
@@ -47,7 +48,7 @@ export class RegisterComponent implements OnInit {
     }
 
     this.afAuth.auth.createUserWithEmailAndPassword(this.user.email,this.user.password).then(cred=>{
-      
+
       const userObj = new XUser.Builder()
       .setId(cred.user.uid)
       .setFirstName(userName[0])
@@ -58,7 +59,7 @@ export class RegisterComponent implements OnInit {
       .setPhoto("http://www.photos.com")
       .build()
 
-      
+
       this.userService.serverCreateUser(userObj)
       .subscribe(response => {
         if (response.status == "Success") {

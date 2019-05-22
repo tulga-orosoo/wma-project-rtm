@@ -10,9 +10,6 @@ import { NbToastrService } from '@nebular/theme';
   styleUrls: ['pages.component.scss'],
   template: `
     <ngx-sample-layout>
-    <nb-alert status="success">
-     {{message}}
-     </nb-alert>
       <nb-menu [items]="menu"></nb-menu>
       <router-outlet></router-outlet>
     </ngx-sample-layout>
@@ -20,13 +17,13 @@ import { NbToastrService } from '@nebular/theme';
   providers: [MessageService]
 })
 export class PagesComponent implements OnInit {
- 
+
   menu = MENU_ITEMS;
 
   notifier = new NotificationFactory(this.toasterService)
 
   constructor(private msgService: MessageService, private toasterService: NbToastrService) {
-    
+
   }
 
   ngOnInit(): void {

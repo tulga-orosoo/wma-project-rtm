@@ -1,14 +1,11 @@
 <div class="row">
   <div class="col-lg-8">
-    <nb-card [nbSpinner]="preLoader" nbSpinnerStatus="success">
+    <nb-card>
       <nb-card-header class="tools">
         <span>Tanks information</span>
-       
+
       </nb-card-header>
       <nb-card-body>
-        <div class="" *ngIf="noData">
-            No tanks record added yet!
-        </div>
           <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
             <thead>
             <tr>
@@ -21,7 +18,7 @@
             <th scope="col">Oil Type</th>
             <th scope="col">delete</th>
             <th scope="col">edit</th>
-          
+
             </tr>
             </thead>
             <tbody>
@@ -52,4 +49,3 @@
       </nb-card>
     </div>
   </div>
-          

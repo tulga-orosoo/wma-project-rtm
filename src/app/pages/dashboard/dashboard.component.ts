@@ -143,11 +143,11 @@ export class DashboardComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   updateChartData() {
-    if(this.echartsInstance) {
-      setTimeout(() => {
-        this.echartsInstance.resize();
-      }, 0);
-    }
+    // if(this.echartsInstance) {
+    //   setTimeout(() => {
+    //     this.echartsInstance.resize();
+    //   }, 0);
+    // }
 
     this.updateOrdersChartOptions();
     console.log(this.options);
@@ -289,7 +289,7 @@ export class DashboardComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   getTankLevel(capacity, waterLevel) {
-    return Math.round((Number(waterLevel) / capacity)*100)/100
+    return Math.round((Number(waterLevel) / capacity)*10000)/10000
   }
 
 
