@@ -25,6 +25,7 @@ import { AuthService } from './auth/auth.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MessageService } from './@core/mock/message.service';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -37,7 +38,6 @@ import { MessageService } from './@core/mock/message.service';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
-
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

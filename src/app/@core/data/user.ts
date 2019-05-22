@@ -7,8 +7,11 @@ export class XUser {
         private lastName?: String,
         private email?: String,
         private phoneNumber?: String,
-        private photURL?: String) { }
+        private photURL?: String,
+        private id?: String) { }
 
+
+    getId = () => this.id
     getFirstName = () => this.firstName
     getLastName = () => this.lastName
     getEmail = () => this.email
@@ -18,10 +21,14 @@ export class XUser {
 
     static Builder = class {
 
-        user: XUser=new XUser()
+        user: XUser = new XUser()
 
         constructor() { }
 
+        setId(id) {
+            this.user.id = id;
+            return this
+        }
         setFirstName(firstName) {
             this.user.firstName = firstName
             return this
@@ -50,14 +57,14 @@ export class XUser {
             return this.user
         }
 
-        from(jsonObject){
-            this.user.firstName=jsonObject.firstName
-            this.user.lastName=jsonObject.lastName
-            this.user.email=jsonObject.email
-            this.user.password=jsonObject.email
-            this.user.phoneNumber=jsonObject.phoneNumber
-            this.user.photURL=jsonObject.photoURL
-            this.user.password=jsonObject.password
+        from(jsonObject) {
+            this.user.firstName = jsonObject.firstName
+            this.user.lastName = jsonObject.lastName
+            this.user.email = jsonObject.email
+            this.user.password = jsonObject.email
+            this.user.phoneNumber = jsonObject.phoneNumber
+            this.user.photURL = jsonObject.photoURL
+            this.user.password = jsonObject.password
             return this
         }
     }

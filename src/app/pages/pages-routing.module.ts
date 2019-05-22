@@ -23,13 +23,13 @@ const routes: Routes = [{
       loadChildren: './tank-maintenances/tank-maintenances.module#TankMaintenancesModule',
     },
     {
+      path:'users',
+      loadChildren: './users/users.module#UsersModule'
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
-    },
-    {
-      path:'users',
-      loadChildren: './users/users.module#UsersModule'
     }
   ],
 }];
