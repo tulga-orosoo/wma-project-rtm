@@ -19,6 +19,7 @@ export class XUserService {
     serverCreateUser(user: XUser): Observable<any> {
 
         const xUserObject = {
+            "uid":user.getId(),
             "email": user.getEmail(),
             "firstName": user.getFirstName(),
             "lastName": user.getLastName(),

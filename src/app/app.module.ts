@@ -22,6 +22,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth/auth.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { MessageService } from './@core/mock/message.service';
 
 
@@ -32,6 +33,8 @@ import { MessageService } from './@core/mock/message.service';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxPaginationModule,
+
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),

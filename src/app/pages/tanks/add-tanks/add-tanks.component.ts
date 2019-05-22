@@ -26,7 +26,6 @@ export class AddTanksComponent implements OnInit {
       name: [''],
       capacity: [''],
       typeOfTank: [''],
-      location: [''],
       description: [''],
       status: [''],
       oilType: ['']
@@ -49,10 +48,6 @@ export class AddTanksComponent implements OnInit {
 
   }
 
-  get location() {
-    return [this.tankForm.get('log'), this.tankForm.get('lat')];
-  }
-
   get description() {
     return this.tankForm.get('des');
   }
@@ -66,6 +61,12 @@ export class AddTanksComponent implements OnInit {
 
   onSubmit() {
     this.tankService.AddTank(this.tankForm.value)
+    this.tankForm.reset();
+  }
+
+  ResetForm(){
+    this.tankForm.reset();
   }
 
 }
+

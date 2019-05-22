@@ -1,12 +1,11 @@
-
 <div class="row">
   <div class="col-lg-6">
     <nb-card>
-      <nb-card-header>Add tank </nb-card-header>
+      <nb-card-header>Update tank information</nb-card-header>
       <nb-card-body>
 
 
-        <form [formGroup]="tankForm" (ngSubmit)="onSubmit()" novalidate>
+        <form [formGroup]="editTankForm" (ngSubmit)="submitData()" novalidate>
           <label>code: </label>
           <input type="text" formControlName="code" class="form-control" required>
           <label>name: </label>
@@ -21,13 +20,14 @@
           <input type="text" formControlName="status" class="form-control" required>
           <label>Oil Type: </label>
           <input type="text" formControlName="oilType" class="form-control" required>
-          <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
-          &nbsp;
-          &nbsp;&nbsp;
-          <button type="submit" class="btn btn-success" [disabled]="!tankForm.valid">submit</button>
+
+          <a class="btn float-right text-primary" (click)="goBack()"><i class="nb-arrow-thin-left btn-icon-fix"></i>Back</a>
+          <button type="submit" class="btn btn-success" [disabled]="!editTankForm.valid">Update</button>
+
         </form>
 
-        </nb-card-body>
-      </nb-card>
+
+      </nb-card-body>
+    </nb-card>
   </div>
 </div>
