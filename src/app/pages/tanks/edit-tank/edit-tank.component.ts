@@ -80,7 +80,7 @@ export class EditTankComponent implements OnInit {
     this.router.navigate(['/pages/tanks']);
   }
   goBack() {
-    this.router.navigate(['/pages/tanks']);
+    this.router.navigate(['/pages/tanks']); //goback to the previous component
   }
 
 }

@@ -6,6 +6,7 @@ import { NgForOfContext } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { NbToastRef, NbToastrService } from '@nebular/theme';
 import { MessageService } from '../../@core/mock/message.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'register',
@@ -15,7 +16,7 @@ import { MessageService } from '../../@core/mock/message.service';
 })
 export class RegisterComponent implements OnInit {
 
-  tstRef:NbToastRef
+  tstRef: NbToastRef
 
   user = {
     fullName: '',
@@ -29,8 +30,8 @@ export class RegisterComponent implements OnInit {
   errors: Array<String>
 
   constructor(private userService: XUserService, cd: ChangeDetectorRef,
-    private router: Router,private tstRefService:NbToastrService,
-    private msgService:MessageService) { }
+    private router: Router, private tstRefService: NbToastrService,
+    private msgService: MessageService, public afAuth: AngularFireAuth) { }
 
   getConfigValue(terms): any { return terms }
 
@@ -38,7 +39,17 @@ export class RegisterComponent implements OnInit {
 
     const userName = this.user.fullName.split(" ")
 
-    const userObj = new XUser.Builder()
+   
+    const notification = {
+      type: '',
+      message: '',
+      title: ''
+    }
+
+    this.afAuth.auth.createUserWithEmailAndPassword(this.user.email,this.user.password).then(cred=>{
+      
+      const userObj = new XUser.Builder()
+      .setId(cred.user.uid)
       .setFirstName(userName[0])
       .setLastName(userName[1])
       .setEmail(this.user.email)
@@ -47,18 +58,24 @@ export class RegisterComponent implements OnInit {
       .setPhoto("http://www.photos.com")
       .build()
 
-    this.userService.serverCreateUser(userObj)
+      
+      this.userService.serverCreateUser(userObj)
       .subscribe(response => {
         if (response.status == "Success") {
-          //this.tstRef=this.tstRefService.success(`${response.status}`,"Success")
-          this.msgService.sendMessage(`${response.status}`)
+
+          notification.message = response.message
+          notification.title = "Sucesss"
+          notification.type = "success"
+          this.msgService.sendMessage(notification)
           form.resetForm()
           this.router.navigate(['pages'])
         }
-        else{
-          this.tstRef=this.tstRefService.danger(`${response.message.message}`,"Error")
+        else {
+          this.tstRef = this.tstRefService.danger(`${response.message.message}`, "Error")
         }
       })
+    })
+
   }
 
   ngOnInit() {

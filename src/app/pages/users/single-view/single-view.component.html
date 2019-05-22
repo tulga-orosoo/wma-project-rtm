@@ -1,3 +1,23 @@
-<p>
-  single-view works!
-</p>
+  <nb-card>
+      <nb-card-header>
+          <nb-user [name]='user.firstName' [title]="user.email">
+            </nb-user>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-md-6">
+              <p>First Name: <span class="text-info">{{user.firstName}}</span></p>
+              <p>Email: <span class="text-info">{{user.email}}</span></p>
+          </div>
+            <div class="col-md-6">
+              <p class="text-info">Last Name: {{user.lastName}}</p>
+              <p class="text-info">Phone Number:<a href="#"> {{user.phone}} </a></p>
+            </div>
+          </div>
+      </nb-card-body>
+      <nb-card-footer>
+          <button type="button" class="btn btn-info" (click)="onBtnUpdate()">Update</button>
+
+          <button type="button" class="btn btn-dark float-right" (click)="onBtnDelete()">Delete</button>
+      </nb-card-footer>
+    </nb-card>
