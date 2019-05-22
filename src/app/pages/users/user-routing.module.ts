@@ -8,14 +8,15 @@ export const routes: Routes = [
   // .. here goes our components routes
 {
 path:'',
+redirectTo:'',
 component:MultiViewComponent
 },
 {
-  path:'#',
+  path:':id',
   component:SingleViewComponent
 },
 {
-  path:'#',
+  path:'edit',
   component:UpdateViewComponent
 }
 ];

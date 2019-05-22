@@ -24,6 +24,7 @@ import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { MessageService } from './@core/mock/message.service';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -31,11 +32,9 @@ import { MessageService } from './@core/mock/message.service';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
-
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

@@ -47,11 +47,21 @@ export class RegisterComponent implements OnInit {
       .setPhoto("http://www.photos.com")
       .build()
 
+      const notification={
+        type:'',
+        message:'',
+        title:''
+      }
+
     this.userService.serverCreateUser(userObj)
       .subscribe(response => {
         if (response.status == "Success") {
-          //this.tstRef=this.tstRefService.success(`${response.status}`,"Success")
-          this.msgService.sendMessage(`${response.status}`)
+
+          notification.message=response.message
+          notification.title="Sucesss"
+          notification.type="success"
+
+          this.msgService.sendMessage(notification)
           form.resetForm()
           this.router.navigate(['pages'])
         }

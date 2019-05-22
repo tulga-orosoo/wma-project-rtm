@@ -1,8 +1,10 @@
-import { Component, OnInit, Output, Input, ViewChild } from '@angular/core';
-import { NbMenuService, NbContextMenuComponent } from '@nebular/theme';
-import { filter, map } from 'rxjs/operators'
+import { Component, OnInit } from '@angular/core';
+import { NbMenuService, NbToastrService } from '@nebular/theme';
 import { XUserService } from '../../../@core/mock/user.service';
-import { useAnimation } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
+import { MessageService } from '../../../@core/mock/message.service';
+import { NotificationFactory } from '../../../controls/NotificationFactory';
+
 
 @Component({
   selector: 'multi-view',
@@ -10,60 +12,56 @@ import { useAnimation } from '@angular/animations';
   styleUrls: ['./multi-view.component.scss'],
   providers: [XUserService]
 })
-export class MultiViewComponent implements OnInit {
+export class MultiViewComponent implements OnInit{
 
-  contextMenu=new NbContextMenuComponent()
+  items = [{ title: 'View', id: ''}, { title: 'Edit', id: '' }, { title: 'Remove', id: '' }];
+  users: Array<any> = []
 
-  @Input() menuTag 
-  @Input() placement
-  @ViewChild('usr') usr
+   notifier=new NotificationFactory(this.tstService)
 
-  items = [{ title: 'View'}, { title: 'Edit' }, { title: 'Remove' }];
-  users: Array<any>
-  constructor(private userService: XUserService, private nbMenuService: NbMenuService) {
+  constructor(private userService: XUserService,
+    private nbMenuService: NbMenuService,
+    private tstService: NbToastrService,
+    private route:ActivatedRoute,
+    private msgService:MessageService,
+   ) {
+    this.getUsers()
+  }
 
-    let usrArr = []
-    userService.getUsers().subscribe(objs => {
 
-      objs.forEach(usr => {
-        usrArr.push(
-          {
-            name: `${usr.firstName} ${usr.lastName}`,
-            title: `${usr.email}`,
-            id:`${usr.uid}`
-          })
-      })
-
-      this.users = usrArr
+  onSelected(element) {
+    this.items.forEach(item => {
+      item.id = element.nativeElement.id 
     })
   }
 
   ngOnInit() {
-
-    this.contextMenu.tag=this.menuTag
-    this.contextMenu.position=this.placement
-
-    this.nbMenuService.onItemClick()
-      .pipe(
-        filter(({ tag }) => tag === 'user-view-menu'),
-       // map(({ item: { title } }) => title),
-      )
-      .subscribe(title => {
-        // switch (title) {
-        //   case 'Remove':
-        //     console.log("Removed")
-        //     break;
-
-        //   case 'Edit':
-        //     console.log("Edited")
-        //     break;
-
-        //     case 'View':
-        //     console.log("Viewed")
-        //     break;
-        //}
-        console.log(this.usr)
-      });
+   
+    this.msgService.messenger.subscribe(notification=>{
+    this.notifier.makeToast(notification.type,notification.message,notification.title)
+    })
   }
+
+  getUsers = () => {
+    this.users = []
+    this.userService.getUsers().subscribe(objs => {
+
+      objs.forEach(usr => {
+        this.users.push(
+          {
+            name: `${usr.firstName} ${usr.lastName}`,
+            title: `${usr.email}`,
+            id: `${usr.uid}`
+          })
+      })
+
+    })
+  }
+
+
+  updateClick(){
+
+  }
+
 
 }

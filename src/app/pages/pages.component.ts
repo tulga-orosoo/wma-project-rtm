@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { MENU_ITEMS } from './pages-menu';
+import { MessageService } from '../@core/mock/message.service';
+import { NotificationFactory } from '../controls/NotificationFactory';
+import { NbToastrService } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-pages',
@@ -14,8 +17,23 @@ import { MENU_ITEMS } from './pages-menu';
       <router-outlet></router-outlet>
     </ngx-sample-layout>
   `,
+  providers: [MessageService]
 })
-export class PagesComponent {
-
+export class PagesComponent implements OnInit {
+ 
   menu = MENU_ITEMS;
+
+  notifier = new NotificationFactory(this.toasterService)
+
+  constructor(private msgService: MessageService, private toasterService: NbToastrService) {
+    
+  }
+
+  ngOnInit(): void {
+    this.msgService.messenger.subscribe(notification =>{
+      this.notifier.makeToast(notification.type, notification.message, notification.title)
+     console.log("Hello")
+     })
+  }
+
 }
